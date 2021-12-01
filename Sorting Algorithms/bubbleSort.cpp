@@ -24,7 +24,7 @@ void bubbleSort(int *arr, int size){
     // loop for passes
     for(int i = 0; i < size; i++){
         // loop for comparisions
-        for(int j = 0; j < size -1; j++){
+        for(int j = 0; j < size - 1 - i; j++){
             if(arr[j] > arr[j+1]){
                 // swap
                 int temp = arr[j];
@@ -49,3 +49,4 @@ int main(){
 
     return 0;
 }
+
