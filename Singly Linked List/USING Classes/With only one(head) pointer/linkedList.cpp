@@ -69,14 +69,8 @@ class LinkedList
                 for(int i = 1; i < pos - 1; i++){
                     temp = temp->next;
                 }
-                if(temp->next == NULL){
-                    temp->next = node;
-                    node->next = NULL;
-                }
-                else{
-                    node->next = temp->next;
-                    temp->next = node;
-                }
+                node->next = temp->next;
+                temp->next = node; 
             }
         }
 
@@ -210,6 +204,12 @@ int main(){
     else cout<<"searched element is not found.";
     cout<<endl;
     cout<<endl;
+
+    list.insertNodeAtPos(7, 1);
+    list.displayList();
+
+    bool b1 = true;
+    bool b2 = true;
 
     return 0;
 }
