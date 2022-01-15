@@ -123,15 +123,15 @@ class LinkedList
         }
 
         // Searching a Node in the linked list...
-        int searchNode(int data){
+        int searchNode(int value){
             if(head == NULL) cout<<"sorry, list is empty.";
             else{
                 Node* temp = head;
                 int i = 0;
-                for(i = 1; temp->data != data && temp->next != NULL; i++){
+                for(i = 1; temp->data != value && temp->next != NULL; i++){
                     temp = temp->next;
                 }
-                if(temp->data == data) return i;
+                if(temp->data == value) return i;
                 else return -1;
             }
         }
@@ -141,11 +141,10 @@ class LinkedList
             if(head == NULL) cout<<"List is empty."<<endl;
             else{
                 Node* temp = head;
-                while(temp->next != NULL){
+                while(temp != NULL){
                     cout<<temp->data<<" ";
                     temp = temp->next;
                 }
-                cout<<temp->data<<endl;
             }
         }
 };

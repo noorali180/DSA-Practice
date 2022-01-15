@@ -90,7 +90,7 @@ class LinkedList
                 }
                 Node* node = temp->next;
                 tail = temp;
-                temp->next = NULL;
+                tail->next = NULL;
 
                 return node;
             }
@@ -147,12 +147,14 @@ class LinkedList
 
         // function to display linked list...
         void displayList(){
-            Node* temp = head;
-            while(temp->next != NULL){
-                cout<<temp->data<<" ";
-                temp = temp->next;
+            if(head == NULL) cout<<"List is empty."<<endl;
+            else{
+                Node* temp = head;
+                while(temp != NULL){
+                    cout<<temp->data<<" ";
+                    temp = temp->next;
+                }
             }
-            cout<<temp->data<<" ";
         }
 };
 

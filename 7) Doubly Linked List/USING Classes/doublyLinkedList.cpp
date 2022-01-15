@@ -169,6 +169,18 @@ class DoublyLinkedList
                 cout<<temp->data<<" ";
             }
         }
+
+        // Displaying List in Backward Direction...
+        void displayListBackward(){
+            if(term1 == NULL) cout<<"Sorry LIST is empty"<<endl;
+            else{
+                Node* temp = term2;
+                while(temp != NULL){
+                    cout<<temp->data<<" ";
+                    temp = temp->prev;
+                }
+            }
+        }
 };
 
 int main(){
@@ -188,6 +200,8 @@ int main(){
     list.deleteNodeFromPos(3);
 
     list.displayList();
+    cout<<endl;
+    list.displayListBackward();
 
     return 0;
 }
