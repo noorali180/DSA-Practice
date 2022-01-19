@@ -110,21 +110,17 @@ class LinkedList
         // delete node from position function...
         Node* deleteNodeFromPos(int pos){
             if(head == NULL) cout<<"LIST is empty"<<endl;
+            else if(pos == 1) deleteNodeFromStart();
             else{
-                if(pos == 1) deleteNodeFromStart();
-                else{
-                    Node* temp = head;
-                    for(int i = 1; i < pos - 1; i++){
-                        temp = temp->next;
-                    }
-                    Node* node = temp->next;
+                Node* temp = head;
+                for(int i = 1; i < pos - 1; i++){
+                    temp = temp->next;
+                }
 
-                    if(temp->next->next == NULL){
-                        tail = temp;
-                        temp->next = NULL;
-                    }else{
-                        temp->next = temp->next->next;
-                    }
+                if(temp->next->next == NULL) return deleteNodeFromLast();
+                else{
+                    Node* node = temp->next;
+                    temp->next = temp->next->next;
 
                     return node;
                 }

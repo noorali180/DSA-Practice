@@ -22,7 +22,10 @@ node* deleteFromPos(int pos);
 
 int searchNode(int data);
 
+
+
 int main(){
+    
     append(6);
     append(8);
     append(10);
@@ -37,11 +40,18 @@ int main(){
 
     deleteFromLast();
     deleteFromStart();
+    deleteFromPos(5);
+
+    int searched = searchNode(8);
 
     display();
 
+    cout<<"\nsearched node at index: "<<searched<<endl;
+
     return 0;
 }
+
+
 
 // Function Definitions...
 
@@ -131,13 +141,27 @@ node* deleteFromPos(int pos){
         for(int i = 1; i < pos - 1; i++){
             temp = temp->next;
         }
-        if(temp->next == NULL) return deleteFromLast();
+        if(temp->next->next == NULL) return deleteFromLast();
         else{
             node* n = temp->next;
             temp->next = temp->next->next;
 
             return n;
         }
+    }
+}
+
+// Searching a Node in the linked list...
+    int searchNode(int value){
+    if(head == NULL) cout<<"sorry, list is empty.";
+    else{
+        node* temp = head;
+        int i;
+        for(i = 1; temp->data != value && temp->next != NULL; i++){
+            temp = temp->next;
+        }
+        if(temp->data == value) return i;
+        else return -1;
     }
 }
 

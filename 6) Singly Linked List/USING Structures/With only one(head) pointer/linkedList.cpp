@@ -140,19 +140,13 @@ node* deleteFromStart(){
 // function to delete a node from a certain position.
 node* deleteFromPos(int pos){
     if(head == NULL) cout<<"LIST is empty."<<endl;
-    else if(pos == 1) {
-        node* n = deleteFromStart();
-        return n;
-    }
+    else if(pos == 1) return deleteFromStart();
     else{
         node* temp = head;
         for(int i = 1; i < pos - 1; i++){
             temp = temp->next;
         }
-        if(temp->next == NULL) {
-            node* n = deleteFromLast();
-            return n;
-        }
+        if(temp->next->next == NULL) return deleteFromLast();
         else{
             node* n = temp->next;
             temp->next = temp->next->next;
