@@ -163,15 +163,15 @@ node* deleteFromPos(int pos){
 }
 
 // Searching a Node in the linked list...
-        int searchNode(int value){
-            if(head == NULL) cout<<"sorry, list is empty.";
-            else{
-                node* temp = head;
-                int i = 0;
-                for(i = 1; temp->data != value && temp->next != NULL; i++){
-                    temp = temp->next;
-                }
-                if(temp->data == value) return i;
-                else return -1;
-            }
+    int searchNode(int value){
+    if(head == NULL) cout<<"sorry, list is empty.";
+    else{
+        node* temp = head;
+        int i = 0;
+        for(i = 1; temp->data != value && temp->next != NULL; i++){
+            temp = temp->next;
         }
+        if(temp->data == value) return i;
+        else return -1;
+    }
+}
