@@ -21,6 +21,8 @@ node* deleteFromLast();
 node* deleteFromStart();
 node* deleteFromPos(int pos);
 
+int searchNode(int data);
+
 int main(){
 
     append(25);
@@ -37,8 +39,12 @@ int main(){
     deleteFromStart();
     deleteFromPos(3);
 
+    int searchedElement = searchNode(10);
+
     display();
 
+    if(searchedElement == -1) cout<<"\nElement not found."<<endl;
+    else    cout<<"\nSearched Element found at index "<<searchedElement<<endl;
 
     return 0;
 }
@@ -155,3 +161,17 @@ node* deleteFromPos(int pos){
         }
     }
 }
+
+// Searching a Node in the linked list...
+        int searchNode(int value){
+            if(head == NULL) cout<<"sorry, list is empty.";
+            else{
+                node* temp = head;
+                int i = 0;
+                for(i = 1; temp->data != value && temp->next != NULL; i++){
+                    temp = temp->next;
+                }
+                if(temp->data == value) return i;
+                else return -1;
+            }
+        }
