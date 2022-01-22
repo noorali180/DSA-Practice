@@ -76,7 +76,7 @@ class DoublyLinkedList
         }
 
         // Insert Node at Pos.(After)...
-        void insertNodeAtAfter(int pos, int value){
+        void insertNodeAfter(int pos, int value){
             if(term1 == NULL) cout<<"Sorry LIST is empty"<<endl;
             else{
                 Node* curr = searchNodePos(pos); 
@@ -89,7 +89,7 @@ class DoublyLinkedList
                     node->next = curr->next;
                     curr->next->prev = node;
                     curr->next = node;
-                    node->prev = curr;   
+                    curr->next->prev = curr;   
                 }             
                 
             }
@@ -108,8 +108,8 @@ class DoublyLinkedList
                     Node* node = new Node(value);
                     node->prev = curr->prev;
                     curr->prev->next = node;
-                    node->next = curr;
                     curr->prev = node;
+                    curr->prev->next = curr;
                 }
             }
         }
@@ -191,7 +191,7 @@ int main(){
     list.prependNode(2);
     list.prependNode(1);
 
-    list.insertNodeAtAfter(3, 5);
+    list.insertNodeAfter(3, 5);
     list.insertNodeBefore(3, 10);
 
     list.deleteNodeFromStart();
