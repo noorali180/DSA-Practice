@@ -47,6 +47,13 @@ int dequeue(){
     }
 }
 
+// function to look the first element in the queue...
+int lookFront(){
+    if(isEmpty()) cout<<"\nSorry, Queue is empty."<<endl;
+    else return queue[front];
+}
+
+// function to display the queue...
 void display(){
     for(int i = front; i <= rear; i++){
         cout<<queue[i]<<" ";
@@ -68,7 +75,6 @@ int main(){
     int first = dequeue();
     int second = dequeue();
     int third = dequeue();
-
 
     display();
 
