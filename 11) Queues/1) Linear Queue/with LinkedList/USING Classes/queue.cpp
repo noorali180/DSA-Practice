@@ -23,6 +23,7 @@ class Queue{
     Node* front = NULL;
     Node* rear = NULL;
 
+    // function to check if Queue is empty...
     bool isEmpty(){
         if(front == NULL && rear == NULL) return true;
         else return false;
