@@ -1,6 +1,7 @@
 // when using arrays, circular queue is far better than linear queue 🙃...
 // FIFO (first in first out)...
 // must follow, O(1), for every functionality...
+// DRAWBACK OF LINEAR QUEUE >> "In a linear queue, the traversal through the queue is possible only once,i.e.,once an element is deleted, we cannot insert another element in its position. This disadvantage of a linear queue is overcome by a circular queue, thus saving memory."
 
 #include <iostream>
 
@@ -41,8 +42,13 @@ void enqueue(int value){
 // function to delete element (dequeue) from the queue... (always from front).
 int dequeue(){
     if(isEmpty()) cout<<"\nSorry, Queue is empty."<<endl;
+    int value = queue[front];
+    if(front == rear) {
+        front = rear = -1;
+        return value;
+    }
     else{
-        int value = queue[front++];
+        front++;
         return value;
     }
 }
