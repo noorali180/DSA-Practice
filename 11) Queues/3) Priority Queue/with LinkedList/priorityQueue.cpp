@@ -28,6 +28,7 @@ class PriorityQueue{
         front = NULL;
     }
 
+    // Function to enqueue an element into the queue...
     void enqueue(int d, int p){
         Node* newNode = new Node(d, p);
         if(front == NULL){
@@ -36,7 +37,7 @@ class PriorityQueue{
         }
         else{
             Node* temp = front;
-            while(temp->next != NULL && temp->priority <= p){
+            while(temp->next != NULL && temp->next->priority <= p){
                 temp = temp->next;
             }
 
@@ -51,6 +52,7 @@ class PriorityQueue{
         }
     }
 
+    // Function to dequeue an element from queue...
     Node* dequeue(){
         if(front == NULL) cout<<"Sorry queue is empty."<<endl;
         else{
@@ -61,6 +63,15 @@ class PriorityQueue{
         }
     }
 
+    // Function to peek into the queue...
+    Node* peek(){
+        if(front == NULL) cout<<"Sorry queue is empty."<<endl;
+        else{
+            return front;
+        }
+    }
+
+    // Function to display elements present in the queue...
     void display(){
         if(front == NULL) cout<<"Sorry queue is empty."<<endl;
         else{
@@ -73,15 +84,23 @@ class PriorityQueue{
     }
 };
 
-
+// Main (DRIVER) Function...
 int main(){
     PriorityQueue list;
 
     list.enqueue(2, 1);
     list.enqueue(3, 2);
-    list.enqueue(5, 4);
+    list.enqueue(5, 6);
     list.enqueue(6, 5);
     list.enqueue(4, 3);
+    list.enqueue(10, 1);
+    list.enqueue(11, 2);
+
+    list.dequeue();
+    list.dequeue();
+    list.dequeue();
+
+    cout<<list.peek()->data<<endl;
 
     list.display();
 
